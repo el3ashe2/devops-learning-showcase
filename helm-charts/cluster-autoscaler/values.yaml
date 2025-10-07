@@ -1,0 +1,29 @@
+# Cluster Autoscaler Helm Chart Values
+autoDiscovery:
+  clusterName: koda-eks-cluster
+awsRegion: us-east-1
+rbac:
+  create: true
+  serviceAccount:
+    create: true
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::844446097613:role/ClusterAutoscalerIRSA
+    name: cluster-autoscaler
+image:
+  repository: registry.k8s.io/autoscaling/cluster-autoscaler
+  tag: v1.29.0
+resources:
+  limits:
+    cpu: 100m
+    memory: 300Mi
+  requests:
+    cpu: 100m
+    memory: 300Mi
+extraArgs:
+  skip-nodes-with-local-storage: false
+  skip-nodes-with-system-pods: false
+  balance-similar-node-groups: true
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8085"
+replicaCount: 1

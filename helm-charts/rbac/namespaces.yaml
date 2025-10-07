@@ -1,0 +1,54 @@
+# Namespace: platform
+# Core platform services and shared infrastructure
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: platform
+  labels:
+    name: platform
+    environment: production
+    managed-by: terraform
+---
+# Namespace: auth
+# Authentication and authorization microservices
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: auth
+  labels:
+    name: auth
+    environment: production
+    managed-by: terraform
+---
+# Namespace: questions
+# Question management microservices
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: questions
+  labels:
+    name: questions
+    environment: production
+    managed-by: terraform
+---
+# Namespace: voting
+# Voting and poll management microservices
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: voting
+  labels:
+    name: voting
+    environment: production
+    managed-by: terraform
+---
+# Namespace: admin
+# Administrative dashboard and management tools
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: admin
+  labels:
+    name: admin
+    environment: production
+    managed-by: terraform

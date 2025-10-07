@@ -1,0 +1,80 @@
+---
+# RoleBinding for Platform namespace
+# Binds platform-service-role to platform service accounts
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: platform-service-rolebinding
+  namespace: platform
+subjects:
+- kind: ServiceAccount
+  name: platform-service-account
+  namespace: platform
+roleRef:
+  kind: Role
+  name: platform-service-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# RoleBinding for Auth namespace
+# Binds auth-service-role to auth service accounts
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: auth-service-rolebinding
+  namespace: auth
+subjects:
+- kind: ServiceAccount
+  name: auth-service-account
+  namespace: auth
+roleRef:
+  kind: Role
+  name: auth-service-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# RoleBinding for Questions namespace
+# Binds questions-service-role to questions service accounts
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: questions-service-rolebinding
+  namespace: questions
+subjects:
+- kind: ServiceAccount
+  name: questions-service-account
+  namespace: questions
+roleRef:
+  kind: Role
+  name: questions-service-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# RoleBinding for Voting namespace
+# Binds voting-service-role to voting service accounts
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: voting-service-rolebinding
+  namespace: voting
+subjects:
+- kind: ServiceAccount
+  name: voting-service-account
+  namespace: voting
+roleRef:
+  kind: Role
+  name: voting-service-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# RoleBinding for Admin namespace
+# Binds admin-service-role to admin service accounts
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: admin-service-rolebinding
+  namespace: admin
+subjects:
+- kind: ServiceAccount
+  name: admin-service-account
+  namespace: admin
+roleRef:
+  kind: Role
+  name: admin-service-role
+  apiGroup: rbac.authorization.k8s.io

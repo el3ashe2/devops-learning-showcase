@@ -1,0 +1,65 @@
+# Datadog Agent Helm Chart Values
+datadog:
+  apiKey: YOUR_DATADOG_API_KEY
+  appKey: YOUR_DATADOG_APP_KEY
+  site: datadoghq.com
+  
+  # Container monitoring
+  containerCollectAll: true
+  
+  # Logs collection
+  logs:
+    enabled: true
+    containerCollectAll: true
+  
+  # APM (Application Performance Monitoring)
+  apm:
+    enabled: true
+    port: 8126
+  
+  # Process monitoring
+  processAgent:
+    enabled: true
+    processCollection: true
+  
+  # Network Performance Monitoring
+  networkMonitoring:
+    enabled: true
+
+  # Kubernetes event collection
+  collectEvents: true
+  
+  # Tag configuration
+  tags:
+    - env:production
+    - cluster:koda-eks-cluster
+
+agents:
+  image:
+    repository: gcr.io/datadoghq/agent
+    tag: 7.49.0
+  
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+clusterAgent:
+  enabled: true
+  image:
+    repository: gcr.io/datadoghq/cluster-agent
+    tag: 7.49.0
+  
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+kubeStateMetricsCore:
+  enabled: true
